@@ -1,0 +1,22 @@
+#!/usr/bin/osascript
+# vim:tw=0:ts=2:sw=2:et:norl:ft=applescript
+# Author: Landon Bouma <https://tallybark.com/>
+# Project: https://github.com/DepoXy/macOS-skhibidirc#👤
+# License: MIT                                        🚽
+
+# Copyright (c) © 2024 Landon Bouma. All Rights Reserved.
+
+# USAGE: E.g.,
+#
+#   osascript ~/.kit/mOS/macOS-skhibidirc/lib/hide-all-windows.osa
+
+# THANX: https://superuser.com/a/404087
+
+activate application "Finder"
+
+tell application "System Events"
+  set visible of processes where name is not "Finder" to false
+end tell
+
+tell application "Finder" to set collapsed of windows to true
+

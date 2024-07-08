@@ -1,0 +1,353 @@
+# vim:tw=0:ts=2:sw=2:et:norl:nospell:ft=conf
+# Author: Landon Bouma <https://tallybark.com/>
+# Project: https://github.com/DepoXy/macOS-skhibidirc#👤
+# License: MIT                                        🚽
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# REFER:
+#
+#   https://github.com/koekeishiya/skhd/blob/master/examples/skhdrc
+#   - COPYD: ~/.kit/mOS/macOS-skhibidirc/.config/skhd/skhdrc.EXAMPLE
+#
+#   https://github.com/koekeishiya/skhd/blob/master/src/tokenize.h
+#
+# REFER: Keycodes:
+#
+# - If you need to use keycodes use the macOS Carbon value (not ASCII).
+#
+#   - E.g., use '0x1B', not '-', 'minus', or 'Minus' (or ASCII '0x2D').
+#
+# - CXREF: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Events.h
+#
+# SAVVY: The `cmd` rules below work with or without quotes.
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# Finder foregrounder-opener
+#
+# Note this blocks default <Cmd-f> Find used by many apps.
+# - But if you care, remap to <Ctrl-f> and be more @Linux'y.
+#   (Use macOS Settings to remap application menu items.)
+cmd - f:
+  osascript \
+    -e 'tell application "Finder" to reopen' \
+    -e 'tell application "Finder" to activate'
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# Shift+Ctrl+Cmd+W: Hide EVERYTHING, srsly this is *tight*, nice and fast
+# - Note this also hides previously minimized windows (that are in the Dock).
+# - CALSO: See also Mission Control *Show Desktop* binding in macOS
+#   Keyboard Shortcuts, which slides windows away to reveal the desktop.
+#   - The author has that feature mapped to Ctrl+Alt+D.
+#     - SAVVY: Press Ctrl+Alt+D again to restore windows.
+shift + ctrl + cmd - w:
+  osascript \
+    ~/.kit/mOS/macOS-skhibidirc/lib/hide-all-windows.osa
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# Alacritty window fronters.
+# - DPNDS: Requires that the termianl window titles starts with a unique number,
+#   e.g., if the current directory is user home, it might be "1. ~".
+#   - CXREF: Homefries has a terminal window titler that numbers windows
+#     for Alacritty, mate-terminal, and iTerm2:
+#       https://github.com/landonb/home-fries#🍟
+#         https://github.com/landonb/home-fries/blob/release/lib/term/show-command-name-in-window-title.sh
+#           ~/.kit/sh/home-fries/lib/term/show-command-name-in-window-title.sh
+
+cmd - 1 : osascript ~/.kit/mOS/macOS-skhibidirc/lib/alacritty-front-window-number.osa 1
+cmd - 2 : osascript ~/.kit/mOS/macOS-skhibidirc/lib/alacritty-front-window-number.osa 2
+cmd - 3 : osascript ~/.kit/mOS/macOS-skhibidirc/lib/alacritty-front-window-number.osa 3
+cmd - 4 : osascript ~/.kit/mOS/macOS-skhibidirc/lib/alacritty-front-window-number.osa 4
+cmd - 5 : osascript ~/.kit/mOS/macOS-skhibidirc/lib/alacritty-front-window-number.osa 5
+cmd - 6 : osascript ~/.kit/mOS/macOS-skhibidirc/lib/alacritty-front-window-number.osa 6
+cmd - 7 : osascript ~/.kit/mOS/macOS-skhibidirc/lib/alacritty-front-window-number.osa 7
+cmd - 8 : osascript ~/.kit/mOS/macOS-skhibidirc/lib/alacritty-front-window-number.osa 8
+cmd - 9 : osascript ~/.kit/mOS/macOS-skhibidirc/lib/alacritty-front-window-number.osa 9
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# Gmail or Outlook foregrounder
+#
+# - Opens first window found with the following prefix:
+#   - Gmail prefix
+#       "Inbox "
+#   - Google Calendar [author keeps Gmail and Cal tabs in same window]
+#       "Google Calendar - "
+#   - Outlook prefix [for when you use Outlook on a host and not Gmail]
+#       "Mail - "
+#   - Outlook, when you've been logged off (/srsly)
+#       "Sign in to Outlook"
+#   - Outlook, when you've been signed out (ugh, more timeout plz)
+#       "Sign out"
+shift + ctrl + cmd - a:
+  osascript \
+    ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+      "https://mail.google.com/mail/u/0/#inbox" \
+      "Inbox " \
+      "Google Calendar - " \
+      "Mail - " \
+      "Sign in to Outlook" \
+      "Sign out"
+
+# Calendar foregrounder
+#
+# - Opens first window found with the following prefix:
+#   - Outlook Calendar
+#       "Calendar - "
+#   - For one vendor, when you join a meeting from the calendar entry, it
+#     opens a new Webex tab. So sometimes the active tab is the Webex tab,
+#     and not the calendar tab.
+#       "Cisco Webex Meetings - "
+#   - Outlook tab titles, as explained for Email foregrounder above:
+#       "Sign in to Outlook"
+#       "Sign out"
+#
+# ISOFF/2024-07-08: This might be revived if needed again,
+# but lately author has been using email and calendar in
+# same window (and not Outlook).
+#
+#   shift + ctrl + cmd - c:
+#     osascript \
+#       ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+#         "" \
+#         "Calendar - " \
+#         "Cisco Webex Meetings - " \
+#         "Sign in to Outlook" \
+#         "Sign out"
+
+# ALTLY: If you use an Email application instead, you could override
+# the previous binding in your own skhdrc (loaded at the bottom of
+# this file).
+#
+# - E.g.:
+#
+#     # Microsoft Outlook foregrounder/opener
+#     shift + ctrl + cmd - a:
+#       osascript \
+#         -e 'tell application "Microsoft Outlook" to reopen' \
+#         -e 'tell application "Microsoft Outlook" to activate'
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# Messenger or Assorted Chat tab foregrounder
+#
+# - Opens first window found with the following prefix:
+#   - Android SMS
+#       "Google Messages for web"
+#   - Facebook Messenger
+#       "Messenger"
+#   - Insta
+#       "Inbox • Chats"
+#   - Author's local BM index
+#       "🗨️         Chat & Social"
+shift + ctrl + cmd - s:
+  osascript \
+    ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+      "https://www.messenger.com/" \
+      "Google Messages for web" \
+      "Messenger" \
+      "Inbox • Chats" \
+      "🗨️         Chat & Social"
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# Slack foregrounder/opener
+# DUNNO/2024-07-05: Doesn't work:
+#   shift + ctrl + cmd - d:
+shift + ctrl + cmd - f:
+  osascript \
+    -e 'tell application "Slack" to reopen' \
+    -e 'tell application "Slack" to activate'
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# Spotify foregrounder/๏קєภer
+shift + ctrl + cmd - x:
+  osascript \
+    -e 'tell application "Spotify" to reopen' \
+    -e 'tell application "Spotify" to activate'
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# Some other app opener ideas:
+#
+#   # OpenLens foregrounder/opener
+#   shift + ctrl + cmd - q:
+#     osascript \
+#       -e 'tell application "OpenLens" to reopen' \
+#       -e 'tell application "OpenLens" to activate'
+#
+#   # DBeaver foregrounder/opener
+#   shift + ctrl + cmd - e:
+#     osascript \
+#       -e 'tell application "DBeaver Community" to reopen' \
+#       -e 'tell application "DBeaver Community" to activate'
+#
+#   # Webex foregrounder/opener
+#   shift + ctrl + cmd - w:
+#     osascript \
+#       -e 'tell application "Webex Meetings" to reopen' \
+#       -e 'tell application "Webex Meetings" to activate'
+#
+#   # Teams foregrounder/opener
+#   shift + ctrl + cmd - t:
+#     osascript \
+#       -e 'tell application "Microsoft Teams" to reopen' \
+#       -e 'tell application "Microsoft Teams" to activate'
+#
+#   # Postman foregrounder/opener
+#   shift + ctrl + cmd - p:
+#     osascript \
+#       -e 'tell application "Postman" to reopen' \
+#       -e 'tell application "Postman" to activate'
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# PowerThesaurus [browser window]
+# - SAVVY: So this doesn't block File > Print for most apps,
+#          we only wire for a few specific applications.
+cmd - p [
+  "alacritty"       : osascript \
+      ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+        "https://www.powerthesaurus.org/" \
+        "Power Thesaurus"
+  "chrome"          : osascript \
+      ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+        "https://www.powerthesaurus.org/" \
+        "Power Thesaurus"
+  "iterm2"          : osascript \
+      ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+        "https://www.powerthesaurus.org/" \
+        "Power Thesaurus"
+  "macvim"          : osascript \
+      ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+        "https://www.powerthesaurus.org/" \
+        "Power Thesaurus"
+  *                 ~
+]
+
+# ***
+
+# Regex Dictionary by Lou Hevly [browser window]
+shift + cmd - x:
+  osascript \
+    ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+      "https://www.visca.com/regexdict/" \
+      "Regex Dictionary by Lou Hevly"
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# Google Chrome — New Window (Cmd-y)
+# - ALTLY:
+#     /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window
+cmd - y: open -na "Google Chrome" --args --new-window
+
+# Google Chrome — Foregrounder
+shift + cmd - y:
+  osascript \
+    -e 'tell application "Chrome" to reopen' \
+    -e 'tell application "Chrome" to activate'
+
+# Google Chrome — Raise *Inspect* Window (Cmd-r)
+cmd - r:
+  osascript \
+    ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+      "" \
+      "DevTools" \
+      "Inspect with Chrome Developer Tools" \
+      "devtools://"
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# Alacritty — New Window (Cmd-m)
+# - ALTLY: Except Homefries is specific about the starting directory,
+#   so --working-directory is useless:
+#     open -na alacritty --args --working-directory ~
+# - ALTLY: Or if you like iTerm2:
+#     osascript \
+#       -e 'tell app "iTerm2"' \
+#         -e 'create window with default profile' \
+#         -e activate \
+#       -e end tell
+cmd - m : open -na alacritty
+
+# Alacritty — Foreground (Shift-Cmd-M)
+shift + cmd - m:
+  osascript \
+    -e 'tell application "Alacritty" to reopen' \
+    -e 'tell application "Alacritty" to activate'
+
+# Terminal.app — New Window (Ctrl-Cmd-M)
+# - For the rare time you want to test Apple Terminal.app
+ctrl + cmd - m:
+  osascript \
+    -e 'tell app "Terminal"' \
+      -e 'do script ""' \
+      -e activate \
+    -e end tell
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# MacVim — Application Foregrounder (Cmd-`)
+# - Grave accent '`' is:
+#     kVK_ANSI_Grave = 0x32
+cmd - 0x32:
+  osascript \
+    -e 'tell application "MacVim" to reopen' \
+    -e 'tell application "MacVim" to activate'
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# SAVVY: Use Apple kVK_ANSI_* value, not ASCII 0x2D ('-'):
+#     kVK_ANSI_Minus = 0x1B
+# - CXREF: See Events.h link above
+
+# <Cmd-Minus> — Put YYYY-MM-DD into clipboard.
+# - Note the printf avoids newline injection.
+#   - Though below we also use `tr -d`...
+# - CALSO: Homefries $(TTT) command and Dubs-Vim 'TTT' alias.
+cmd - 0x1B: /bin/dash -c 'printf "%s" "$(date "+%Y-%m-%d")" | pbcopy'
+
+# <Ctrl-Cmd-Semicolon> — Put normal date plus:time into clipboard.
+# - HSTRY: Named after erstwhile Homefries $(TTTtt:) command.
+ctrl + cmd - 0x29: /bin/dash -c 'printf "%s" "$(date "+%Y-%m-%d %H:%M")" | tr -d "\n" | pbcopy'
+
+# <Ctrl-Cmd-Apostrophe(Quote)> — Put dashed date-plus-time into clipboard.
+# - CALSO: Homefries $(TTTtt-) command.
+ctrl + cmd - 0x27: /bin/dash -c 'printf "%s" "$(date "+%Y-%m-%d-%H-%M")" | tr -d "\n" | pbcopy'
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# USAGE: Create symlink at ~/.config/skhd/skhdrc--client
+#        that points to your private skhdrc file.
+
+# SAVVY: The `.load` command silently ignores missing config files.
+
+# SAVVY: The `.load` command requires quotes, and does not honor ~
+#        (unlike the `cmd ... : ...` rules above).
+#
+# - E.g., these fail:
+#
+#     .load ~/path/to/skhdrc--client
+#     .load "~/path/to/skhdrc--client"
+#     .load /path/to/skhdrc--client
+#
+#   But this would work:
+#
+#     .load "/path/to/skhdrc--client"
+
+# CXREF: ~/.config/skhd/skhdrc--client
+#   ~/.depoxy/running/.config/skhd/skhdrc--client
+.load "skhdrc--client"
+
+# All `.load` a DepoXy-specific config, if it exists.
+#
+# CXREF: ~/.config/skhd/skhdrc--depoxy
+#   ~/.depoxy/ambers/home/.config/skhd/skhdrc--depoxy
+.load "skhdrc--depoxy"
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
