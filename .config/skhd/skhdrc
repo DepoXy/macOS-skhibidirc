@@ -340,7 +340,7 @@ ctrl + cmd - 0x27: /bin/dash -c 'printf "%s" "$(date "+%Y-%m-%d-%H-%M")" | tr -d
 #     .load "/path/to/skhdrc--client"
 
 # CXREF: ~/.config/skhd/skhdrc--client
-#   ~/.depoxy/running/.config/skhd/skhdrc--client
+#   ~/.depoxy/running/home/.config/skhd/skhdrc--client
 .load "skhdrc--client"
 
 # All `.load` a DepoXy-specific config, if it exists.
