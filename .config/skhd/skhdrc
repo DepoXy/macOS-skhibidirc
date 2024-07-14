@@ -136,7 +136,7 @@ shift + ctrl + cmd - a:
 #
 # - Opens first window found with the following prefix:
 #   - Android SMS
-#       "Google Messages for web"
+#       "Messages for web"
 #   - Facebook Messenger
 #       "Messenger"
 #   - Insta
@@ -147,7 +147,7 @@ shift + ctrl + cmd - s:
   osascript \
     ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
       "https://www.messenger.com/" \
-      "Google Messages for web" \
+      "Messages for web" \
       "Messenger" \
       "Inbox • Chats" \
       "🗨️         Chat & Social"
