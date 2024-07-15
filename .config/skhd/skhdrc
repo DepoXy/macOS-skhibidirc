@@ -245,10 +245,10 @@ shift + cmd - x:
 # Google Chrome — New Window (Cmd-y)
 # - ALTLY:
 #     /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window
-cmd - y: open -na "Google Chrome" --args --new-window
+cmd - t: open -na "Google Chrome" --args --new-window
 
 # Google Chrome — Foregrounder
-shift + cmd - y:
+shift + cmd - t:
   osascript \
     -e 'tell application "Chrome" to reopen' \
     -e 'tell application "Chrome" to activate'
