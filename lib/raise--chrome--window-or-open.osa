@@ -37,7 +37,7 @@ on run argv
     tell application "Google Chrome"
       repeat with w in windows
         tell w
-          if title of w starts with match_title then
+          if title of w contains match_title then
             set index to 1
 
             tell application "System Events" to tell process "Google Chrome"
