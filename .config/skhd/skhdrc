@@ -29,10 +29,12 @@
 # Note this blocks default <Cmd-f> Find used by many apps.
 # - But if you care, remap to <Ctrl-f> and be more @Linux'y.
 #   (Use macOS Settings to remap application menu items.)
-cmd - f:
-  osascript \
-    -e 'tell application "Finder" to reopen' \
-    -e 'tell application "Finder" to activate'
+cmd - f [
+  * : osascript \
+        -e 'tell application "Finder" to reopen' \
+        -e 'tell application "Finder" to activate'
+  "meld" ~
+  ]
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
