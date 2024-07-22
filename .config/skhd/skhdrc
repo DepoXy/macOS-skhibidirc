@@ -5,22 +5,43 @@
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
-# REFER:
+# USAGE: Fork this project and make it your own.
+#
+#        Or if you like it as is, add your private bindings to
+#        the client config (loaded last, at the bottom of this
+#        file, so it can override any of the bindings below):
+#
+#          ~/.config/skhd/skhdrc--client
+#
+#        If you're running DepoXy, that file symlinks to a
+#        DepoXy Client file:
+#
+#          ~/.depoxy/running/home/.config/skhd/skhdrc--client
+#
+#        - This file also loads DepoXy-specific bindings
+#          (before the client bindings):
+#
+#          ~/.config/skhd/skhdrc--depoxy ->
+#            ~/.depoxy/ambers/home/.config/skhd/skhdrc--depoxy
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
+
+# REFER: See the `skhd` project example config:
 #
 #   https://github.com/koekeishiya/skhd/blob/master/examples/skhdrc
+#
 #   - COPYD: ~/.kit/mOS/macOS-skhibidirc/.config/skhd/skhdrc.EXAMPLE
+#
+# - See also `skhd` literal keycode names:
 #
 #   https://github.com/koekeishiya/skhd/blob/master/src/tokenize.h
 #
-# REFER: Keycodes:
-#
-# - If you need to use keycodes use the macOS Carbon value (not ASCII).
+# - For keycode names that `skhd` does not define,
+#   use the macOS Carbon value (not ASCII).
 #
 #   - E.g., use '0x1B', not '-', 'minus', or 'Minus' (or ASCII '0x2D').
 #
-# - CXREF: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Events.h
-#
-# SAVVY: The `cmd` rules below work with or without quotes.
+#   - CXREF: /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/Headers/Events.h
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
