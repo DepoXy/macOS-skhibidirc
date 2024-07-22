@@ -65,7 +65,11 @@ cmd - f [
 #   Keyboard Shortcuts, which slides windows away to reveal the desktop.
 #   - The author has that feature mapped to Ctrl+Alt+D.
 #     - SAVVY: Press Ctrl+Alt+D again to restore windows.
-shift + ctrl + cmd - w:
+# - CALSO: See similar macOS-Hammyspoony binding, <Shift-Ctrl-Cmd-W>,
+#   which hides or minimizes all but the frontmost window.
+#   - It minimizes Alacritty windows, but hides all other windows,
+#     then brings what was the current window back to the front.
+shift + ctrl + alt - w:
   osascript \
     ~/.kit/mOS/macOS-skhibidirc/lib/hide-all-windows.osa
 
