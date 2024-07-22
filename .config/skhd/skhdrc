@@ -346,9 +346,6 @@ ctrl + cmd - 0x27: /bin/dash -c 'printf "%s" "$(date "+%Y-%m-%d-%H-%M")" | tr -d
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
-# USAGE: Create symlink at ~/.config/skhd/skhdrc--client
-#        that points to your private skhdrc file.
-
 # SAVVY: The `.load` command silently ignores missing config files.
 
 # SAVVY: The `.load` command requires quotes, and does not honor ~
@@ -360,19 +357,22 @@ ctrl + cmd - 0x27: /bin/dash -c 'printf "%s" "$(date "+%Y-%m-%d-%H-%M")" | tr -d
 #     .load "~/path/to/skhdrc--client"
 #     .load /path/to/skhdrc--client
 #
-#   But this would work:
+#   But this works:
 #
 #     .load "/path/to/skhdrc--client"
 
-# CXREF: ~/.config/skhd/skhdrc--client
-#   ~/.depoxy/running/home/.config/skhd/skhdrc--client
-.load "skhdrc--client"
-
-# All `.load` a DepoXy-specific config, if it exists.
+# Load a DepoXy-specific config, if it exists.
 #
 # CXREF: ~/.config/skhd/skhdrc--depoxy
 #   ~/.depoxy/ambers/home/.config/skhd/skhdrc--depoxy
 .load "skhdrc--depoxy"
+
+# USAGE: Create symlink at ~/.config/skhd/skhdrc--client
+#        that points to your private skhdrc file.
+
+# CXREF: ~/.config/skhd/skhdrc--client
+#   ~/.depoxy/running/home/.config/skhd/skhdrc--client
+.load "skhdrc--client"
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
