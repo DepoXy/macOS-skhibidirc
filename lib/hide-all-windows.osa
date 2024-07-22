@@ -12,6 +12,10 @@
 
 # THANX: https://superuser.com/a/404087
 
+# USYNC/COPYD:
+#   meld ~/.kit/mOS/macOS-Hammyspoony/lib/hide-all-windows.osa \
+#        ~/.kit/mOS/macOS-skhibidirc/lib/hide-all-windows.osa &
+
 activate application "Finder"
 
 tell application "System Events"

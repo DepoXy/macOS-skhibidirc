@@ -3,17 +3,16 @@ Not your favorite `skhd` config, but a solid No.2
 
 ## DESCRIPTION
 
-  Opinionated `skhd` config, but also a few useful AppleScripts.
+  Opinionated [`skhd`](https://github.com/koekeishiya/skhd) config,
+  but also a few useful AppleScripts.
 
   - You'll find a number of bindings to front or open specific apps
     by using a global binding.
 
-  - E.g., &lt;`Shift-Ctrl-Cmd-A`&gt; brings forward the browser
-    window with an active email tab.
+  - E.g., &lt;`Shift-Ctrl-Cmd-F`&gt; brings Slack to the front,
+    or opens it.
 
-    Or try &lt;`Cmd-Y`&gt; to open a new browser window.
-
-    Bring Slack to the front or open it with &lt;`Shift-Ctrl-Cmd-f`&gt;.
+    Or try &lt;`Cmd-T`&gt; to open a new browser window.
 
     And more.
 
@@ -31,6 +30,37 @@ Not your favorite `skhd` config, but a solid No.2
       to swap most default `Ctrl-` and `Cmd-` key combos, so that
       their macOS behaves more like Linux Mint MATE (the author's
       other main development environment).
+
+  This project is used in combination with a
+  [Hammerspoon](https://www.hammerspoon.org/) config:
+
+  https://github.com/DepoXy/macOS-Hammyspoony#🥄
+
+  - The Hammerspoon config gives us better window and application
+    control. E.g., when fronting a Chrome browser window, Hammerspoon
+    lets us bring a single window (whether hidden, minimized, or just
+    not the front window) to the front without also unhiding other
+    Chrome windows.
+
+    - I originally had such bindings in this project's `skhdrc`, but
+      they used a simple AppleScript that would also unhide other
+      Chrome windows, which I found annoying. E.g., if I have GVim
+      active, I'd prefer that only one Chrome window is fronted,
+      rather than a dozen windows becoming visible and burying my
+      GVim window. (I realize that macOS is application- and not
+      window-centric, but I can still pine for Linux- or Windows-
+      like behavior.)
+
+  - `skhd`, on the other hand, has its own strengths. E.g., it lets us
+    easily change the keybinding action based on the active application,
+    or to blocklist certain applications.
+
+  - You might also find the `skhdrc` config more concise than the
+    Lua config that Hammerspoon uses.
+
+  - (Had the author discovered Hammerspoon before `skhd`, I'm not
+    sure that I'd be using `skhd`, but I appreciate having both
+    options available.)
 
 ## USAGE
 
@@ -75,8 +105,6 @@ Not your favorite `skhd` config, but a solid No.2
 
   `<Cmd-f>`: Bring any Finder window to front, or open Finder
 
-  `<Shift-Ctrl-Cmd-W>`: Hide all windows
-
 ### Terminal window foregrounders
 
   `<Cmd-1>`: Bring to front any window whose title starts with "1. "
@@ -93,20 +121,6 @@ Not your favorite `skhd` config, but a solid No.2
 
   https://github.com/landonb/home-fries/blob/release/lib/term/show-command-name-in-window-title.sh
 
-### Browser foregrounders
-
-  `<Shift-Ctrl-Cmd-A>`: Bring the Email or Calendar browser window to
-  the front, or open Gmail
-
-  `<Shift-Ctrl-Cmd-S>`: Bring the Messaging browser window to
-  the front, or open Messenger
-
-  `<Cmd-P>`: Bring the Power Thesaurus browser window to the front,
-  or open it
-
-  `<Shift-Cmd-X>`: Bring the Regex Dictionary by Lou Hevly browser window
-  to the front, or open it
-
 ### Application foregrounder-openers
 
   `<Shift-Ctrl-Cmd-F>`: Bring Slack to the front, or open it
@@ -116,8 +130,6 @@ Not your favorite `skhd` config, but a solid No.2
   `<Cmd-Y>`: Open a new Chrome window
 
   `<Shift-Cmd-Y>`: Bring Chrome to the front
-
-  `<Cmd-R>`: Bring the browser DevTools window to the front
 
   `<Cmd-M>`: Open a new Alacritty window
 
@@ -172,6 +184,11 @@ Not your favorite `skhd` config, but a solid No.2
   modifications that add bindings beyond the reach of `skhd`
 
   https://github.com/DepoXy/Karabiner-Elephants#🐘
+
+  This project complements a collection of Hammerspoon bindings
+  that rely upon the Hammerspoon API for more advanced features
+
+  https://github.com/DepoXy/macOS-Hammyspoony#🥄
 
   This project is one part of a larger dev stack bound together
   by the DepoXy Development Environment Orchestrator

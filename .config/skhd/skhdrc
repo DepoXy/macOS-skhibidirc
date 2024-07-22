@@ -109,15 +109,20 @@ cmd - 9 : osascript ~/.kit/mOS/macOS-skhibidirc/lib/alacritty-front-window-numbe
 #       "Sign in to Outlook"
 #   - Outlook, when you've been signed out (ugh, more timeout plz)
 #       "Sign out"
-shift + ctrl + cmd - a:
-  osascript \
-    ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
-      "https://mail.google.com/mail/u/0/#inbox" \
-      "Inbox " \
-      "Google Calendar - " \
-      "Mail - " \
-      "Sign in to Outlook" \
-      "Sign out"
+#
+# ISOFF/2024-07-22: Relocated to macOS-Hammyspoony,
+# which will front and focus a single Chrome window
+# without also making other Chrome windows visible.
+#
+#   shift + ctrl + cmd - a:
+#     osascript \
+#       ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+#         "https://mail.google.com/mail/u/0/#inbox" \
+#         "Inbox " \
+#         "Google Calendar - " \
+#         "Mail - " \
+#         "Sign in to Outlook" \
+#         "Sign out"
 
 # Calendar foregrounder
 #
@@ -171,15 +176,18 @@ shift + ctrl + cmd - a:
 #       "Inbox • Chats"
 #   - Author's local BM index
 #       "🗨️         Chat & Social"
-shift + ctrl + cmd - s:
-  osascript \
-    ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
-      "https://www.messenger.com/" \
-      "Messages for web" \
-      "Google Messages for web" \
-      "Messenger" \
-      "Inbox • Chats" \
-      "🗨️         Chat & Social"
+#
+# ISOFF/2024-07-22: Relocated to macOS-Hammyspoony.
+#
+#   shift + ctrl + cmd - s:
+#     osascript \
+#       ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+#         "https://www.messenger.com/" \
+#         "Messages for web" \
+#         "Google Messages for web" \
+#         "Messenger" \
+#         "Inbox • Chats" \
+#         "🗨️         Chat & Social"
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
@@ -238,34 +246,40 @@ shift + ctrl + cmd - x:
 # PowerThesaurus [browser window]
 # - SAVVY: So this doesn't block File > Print for most apps,
 #          we only wire for a few specific applications.
-cmd - p [
-  "alacritty"       : osascript \
-      ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
-        "https://www.powerthesaurus.org/" \
-        "Power Thesaurus"
-  "chrome"          : osascript \
-      ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
-        "https://www.powerthesaurus.org/" \
-        "Power Thesaurus"
-  "iterm2"          : osascript \
-      ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
-        "https://www.powerthesaurus.org/" \
-        "Power Thesaurus"
-  "macvim"          : osascript \
-      ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
-        "https://www.powerthesaurus.org/" \
-        "Power Thesaurus"
-  *                 ~
-]
+#
+# ISOFF/2024-07-22: Relocated to macOS-Hammyspoony.
+#
+#     cmd - p [
+#       "alacritty"       : osascript \
+#           ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+#             "https://www.powerthesaurus.org/" \
+#             "Power Thesaurus"
+#       "chrome"          : osascript \
+#           ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+#             "https://www.powerthesaurus.org/" \
+#             "Power Thesaurus"
+#       "iterm2"          : osascript \
+#           ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+#             "https://www.powerthesaurus.org/" \
+#             "Power Thesaurus"
+#       "macvim"          : osascript \
+#           ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+#             "https://www.powerthesaurus.org/" \
+#             "Power Thesaurus"
+#       *                 ~
+#     ]
 
 # ***
 
 # Regex Dictionary by Lou Hevly [browser window]
-shift + cmd - x:
-  osascript \
-    ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
-      "https://www.visca.com/regexdict/" \
-      "Regex Dictionary by Lou Hevly"
+#
+# ISOFF/2024-07-22: Relocated to macOS-Hammyspoony.
+#
+#     shift + cmd - x:
+#       osascript \
+#         ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+#           "https://www.visca.com/regexdict/" \
+#           "Regex Dictionary by Lou Hevly"
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
@@ -281,13 +295,16 @@ shift + cmd - t:
     -e 'tell application "Chrome" to activate'
 
 # Google Chrome — Raise *Inspect* Window (Cmd-r)
-cmd - r:
-  osascript \
-    ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
-      "" \
-      "DevTools" \
-      "Inspect with Chrome Developer Tools" \
-      "devtools://"
+#
+# ISOFF/2024-07-22: Relocated to macOS-Hammyspoony.
+#
+#   cmd - r:
+#     osascript \
+#       ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+#         "" \
+#         "DevTools" \
+#         "Inspect with Chrome Developer Tools" \
+#         "devtools://"
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
