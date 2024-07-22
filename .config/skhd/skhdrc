@@ -283,10 +283,38 @@ shift + ctrl + cmd - x:
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
-# Google Chrome — New Window (Cmd-y)
+# Google Chrome — New Window
 # - ALTLY:
 #     /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --new-window
-cmd - t: open -na "Google Chrome" --args --new-window
+# - WRONG: Avoid using `open`, e.g.,:
+#     open -na "Google Chrome" --args --new-window
+#   - If you haven't used the command in a while, it'll literally
+#     take ~5s to run. Which is very disruptive to one's flow!
+#   - It also fronts all the other Chrome windows on top of your
+#     other windows — even though Alt-Tab will still take you
+#     back to whatever app you were just on. So there's a mental-
+#     model disconnect, where it looks like the MRU window is
+#     another Chrome window, but when you Alt-Tab, you bring a
+#     much more buried window up top. (I know, hardcore Mac folx
+#     will tell me this because macOS is application-centric and
+#     not window-centric like Linux, but, seriously, how is this
+#     a good design choice? macOS window management is off the
+#     rails.)
+#     - Note that when you close the new window, macOS will still
+#       front another Chrome window, if one is visible in the stack.
+#       Ugh. Seriously. (Though at least that behavior encourages me
+#       to close Chrome windows, or to hide or minimize them.)
+# - BWARE: This binding will sometimes start half-working, opening
+#   a new window, but not fronting it.
+#   - Restart Chrome if this happens, and it'll correct the issue.
+
+cmd - t:
+  osascript \
+    -e 'tell application "Google Chrome"' \
+      -e 'make new window' \
+    -e 'end tell'
+
+# ***
 
 # Google Chrome — Foregrounder
 shift + cmd - t:

@@ -127,9 +127,9 @@ Not your favorite `skhd` config, but a solid No.2
 
   `<Shift-Ctrl-Cmd-X>`: Bring Spotify to the front, or open it
 
-  `<Cmd-Y>`: Open a new Chrome window
+  `<Cmd-T>`: Open a new Chrome window
 
-  `<Shift-Cmd-Y>`: Bring Chrome to the front
+  `<Shift-Cmd-T>`: Bring Chrome to the front
 
   `<Cmd-M>`: Open a new Alacritty window
 
