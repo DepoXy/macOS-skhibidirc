@@ -281,6 +281,20 @@ shift + ctrl + cmd - x:
 #           "https://www.visca.com/regexdict/" \
 #           "Regex Dictionary by Lou Hevly"
 
+# ***
+
+# Google Chrome — Raise *Inspect* Window (Cmd-r)
+#
+# ISOFF/2024-07-22: Relocated to macOS-Hammyspoony.
+#
+#   cmd - r:
+#     osascript \
+#       ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
+#         "" \
+#         "DevTools" \
+#         "Inspect with Chrome Developer Tools" \
+#         "devtools://"
+
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
 # Google Chrome — New Window
@@ -321,18 +335,6 @@ shift + cmd - t:
   osascript \
     -e 'tell application "Chrome" to reopen' \
     -e 'tell application "Chrome" to activate'
-
-# Google Chrome — Raise *Inspect* Window (Cmd-r)
-#
-# ISOFF/2024-07-22: Relocated to macOS-Hammyspoony.
-#
-#   cmd - r:
-#     osascript \
-#       ~/.kit/mOS/macOS-skhibidirc/lib/raise--chrome--window-or-open.osa \
-#         "" \
-#         "DevTools" \
-#         "Inspect with Chrome Developer Tools" \
-#         "devtools://"
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ #
 
