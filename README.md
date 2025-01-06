@@ -141,12 +141,12 @@ to add your own `skhd` bindings.
 
   `<Cmd-9>`: Bring to front any window whose title starts with "9. "
 
-  - The [Homefries](https://github.com/landonb/home-fries) project
+  - The [`sh-humble-prompt`](https://github.com/DepoXy/sh-humble-prompt#🙇) project
     includes a `PS1` setup that numbers new terminal windows when
     they're opened. It works for Alacritty, mate-terminal, and iTerm2
     terminal windows. See:
 
-    https://github.com/landonb/home-fries/blob/release/lib/term/show-command-name-in-window-title.sh
+    https://github.com/DepoXy/sh-humble-prompt/blob/release/lib/show-command-name-in-window-title.sh
 
   `<Cmd-M>`: Open a new Alacritty window
 
@@ -208,11 +208,12 @@ to add your own `skhd` bindings.
   - The `<Cmd-1>` through `<Cmd-9>` bindings expect terminal window titles
     to be numbered.
 
-    - See [Homefries](https://github.com/landonb/home-fries) for a
-      `PS1` prompt that titles window, specifically:
+    - See [`sh-humble-prompt`](https://github.com/DepoXy/sh-humble-prompt#🙇) for a
+      `PS1` prompt that titles window with sequential window numbers:
 
-      https://github.com/landonb/home-fries/blob/release/lib/term/set-shell-prompt-and-window-title.sh
-      https://github.com/landonb/home-fries/blob/release/lib/term/show-command-name-in-window-title.sh
+      https://github.com/DepoXy/sh-humble-prompt/blob/release/lib/set-shell-prompt-and-window-title.sh
+
+      https://github.com/DepoXy/sh-humble-prompt/blob/release/lib/show-command-name-in-window-title.sh
 
   - The Browser foregrounders call `sensible-open` from another project:
 
